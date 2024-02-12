@@ -1,6 +1,6 @@
 import { reflect } from "@effector/reflect";
+import { Typography } from "antd";
 
-import { Text } from "../ui/text";
 import { $workPeriods } from "../model/work-periods";
 
 const $sum = $workPeriods.map((periods) => periods.reduce((acc, period) => acc + period.numberYears, 0));
@@ -8,7 +8,7 @@ const $sum = $workPeriods.map((periods) => periods.reduce((acc, period) => acc +
 const $sumText = $sum.map((sum) => `Количество опыта (лет) - ${sum}`)
 
 export const SumYearsText = reflect({
-    view: Text,
+    view: Typography.Text,
     bind: {
         children: $sumText,
     }

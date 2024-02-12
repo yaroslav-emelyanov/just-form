@@ -1,4 +1,5 @@
-import { HTMLInputTypeAttribute } from "react";
+import { HTMLInputTypeAttribute } from 'react';
+import { Input as AntdInput, Space, Typography } from 'antd'
 
 interface Props {
     id?: string;
@@ -7,12 +8,13 @@ interface Props {
     type?: HTMLInputTypeAttribute;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     additionalMessage?: string;
+    hasError?: boolean;
 }
 
-export const Input: React.FC<Props> = ({ id, label, type, onChange, value, additionalMessage }) => (
-    <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 8 }}>
-        <label htmlFor={id}>{label}</label>
-        <input id={id} value={value} type={type} onChange={onChange} />
-        {additionalMessage && <div>{additionalMessage}</div>}
-    </div>
+export const Input: React.FC<Props> = ({ id, label, type, onChange, value, additionalMessage, hasError }) => (
+    <Space style={{ width: '100%' }} direction='vertical' size={4}>
+        <Typography.Text strong>{label}</Typography.Text>
+        <AntdInput id={id} value={value} type={type} onChange={onChange} />
+        {additionalMessage && <Typography.Text type={hasError ? 'danger' : 'secondary'}>{additionalMessage}</Typography.Text>}
+    </Space>
 )

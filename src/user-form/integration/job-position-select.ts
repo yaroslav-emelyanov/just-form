@@ -9,7 +9,7 @@ export const JobPositionSelect = reflect({
         label: "Должность",
         name: "job-position",
         value: $jobPosition,
-        onChange: (e) => changeJobPosition(e.target.value),
+        onChange: changeJobPosition,
         options: $jobPositions
     }
 })

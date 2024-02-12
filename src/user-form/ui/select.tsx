@@ -1,3 +1,5 @@
+import { Space, Typography, Select as AntdSelect } from "antd";
+
 interface Option {
     label: string;
     value: string;
@@ -5,23 +7,19 @@ interface Option {
 
 
 interface Props {
+    id?: string;
     label?: string;
-    name?: string;
-    value?: string;
+    value?: string | null;
     additionalMessage?: string;
     options?: Option[]
-    onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void; 
+    onChange?: (value: string) => void;
+    hasError?: boolean; 
 }
 
-export const Select: React.FC<Props> = ({ label, value, name, options, onChange, additionalMessage }) => (
-    <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 8 }}>
-        <label htmlFor={name}>{label}</label>
-        <select id={name} value={value} onChange={onChange} style={{ height: 21 }}>
-            <option value="" disabled></option>
-          {options?.map((option) => 
-            <option value={option.value} key={option.value}>{option.label}</option>
-          )}
-        </select>
-        {additionalMessage && <div>{additionalMessage}</div>}
-    </div>
+export const Select: React.FC<Props> = ({ id, label, value, options, onChange, additionalMessage, hasError }) => (
+    <Space style={{ width: '100%' }} direction='vertical' size={4}>
+        <Typography.Text strong>{label}</Typography.Text>
+        <AntdSelect id={id} style={{ width: '100%' }} value={value} options={options} onChange={onChange}  />
+        {additionalMessage && <Typography.Text type={hasError ? 'danger' : 'secondary'}>{additionalMessage}</Typography.Text>}
+    </Space>
 )
