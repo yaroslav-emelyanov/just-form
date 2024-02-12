@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@effector/reflect':
+    specifier: ^9.1.1
+    version: 9.1.1(effector-react@23.2.0)(effector@23.2.0)(react@18.2.0)
   effector:
     specifier: ^23.2.0
     version: 23.2.0
@@ -53,6 +56,18 @@ packages:
     resolution: {integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /@effector/reflect@9.1.1(effector-react@23.2.0)(effector@23.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-ai43qnYOi7YhP5F2xzvhqe2ByNBzFV1hEiPyXGRaWgSxaza24q3wrH1CNmDOSquJ5cB7u/7XNAHhhjI18AXIFg==}
+    peerDependencies:
+      effector: ^23.1.0
+      effector-react: ^23.1.0
+      react: '>=16.8.0 <19.0.0'
+    dependencies:
+      effector: 23.2.0
+      effector-react: 23.2.0(effector@23.2.0)(react@18.2.0)
+      react: 18.2.0
+    dev: false
 
   /@esbuild/aix-ppc64@0.19.12:
     resolution: {integrity: sha512-bmoCYyWdEL3wDQIVbcyzRyeKLgk2WtWLTWz1ZIAZF/EGbNOwSA6ew3PftJ1PqMiOOGu0OyFMzG53L0zqIpPeNA==}
@@ -886,6 +901,18 @@ packages:
       esutils: 2.0.3
     dev: true
 
+  /effector-react@23.2.0(effector@23.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-e7tWJ+lpVKJpzS0UDR2Oi/0dAfvyDYyT44CWIFzBd8aJ7u4VXqP/3RJ4GCa3sH2g8Wffx6IA3BuTUGvgeH8ypg==}
+    engines: {node: '>=11.0.0'}
+    peerDependencies:
+      effector: ^23.0.0
+      react: '>=16.8.0 <19.0.0'
+    dependencies:
+      effector: 23.2.0
+      react: 18.2.0
+      use-sync-external-store: 1.2.0(react@18.2.0)
+    dev: false
+
   /effector@23.2.0:
     resolution: {integrity: sha512-TqR/e5BSfAk4ZkHOykmqPmT9Nn4fLE/BhuBiVmy2cb7Vp6in8N+xMDFhWWZAgOdQjehgt/dIVQyXuWpXh3EoZA==}
     engines: {node: '>=11.0.0'}
@@ -1575,6 +1602,14 @@ packages:
     dependencies:
       punycode: 2.3.1
     dev: true
+
+  /use-sync-external-store@1.2.0(react@18.2.0):
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /vite@5.1.1:
     resolution: {integrity: sha512-wclpAgY3F1tR7t9LL5CcHC41YPkQIpKUGeIuT8MdNwNZr6OqOTLs7JX5vIHAtzqLWXts0T+GDrh9pN2arneKqg==}
