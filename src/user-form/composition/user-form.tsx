@@ -1,3 +1,4 @@
+import { Card, Flex, List, Space } from "antd";
 import { memo } from "react";
 
 import { AddWorkPeriodButton } from "../integration/add-work-period";
@@ -17,31 +18,34 @@ import { WorkPeriod } from "../model/types";
 
 
 const WorkPeriod: React.FC<{ item: WorkPeriod }> = memo(({ item }) =>
-    <div style={{ width: '100%', display: "flex", gap: 8, alignItems: 'flex-end' }}>
-        <WorkPeriodCompanyNameInput id={item.uuid} value={item.companyName} />
-        <WorkPeriodNumberYearsInput id={item.uuid} value={item.numberYears} />
-        <WorkPeriodDeleteButton id={item.uuid} />
-    </div>
+    <List.Item>
+         <Flex align="flex-end" gap={8}>
+            <WorkPeriodCompanyNameInput id={item.uuid} value={item.companyName} />
+            <WorkPeriodNumberYearsInput id={item.uuid} value={item.numberYears} />
+            <WorkPeriodDeleteButton id={item.uuid} />
+         </Flex>
+    </List.Item>
 )
 
 export const UserForm = () => (
-    <div style={{ width: 600, display: 'flex', flexDirection: 'column', gap: 8, padding: 8, border: "1px solid black" }}>
-        <div style={{ display: 'flex', gap: 8 }}>
-          <FirstNameInput />
-          <LastNameInput />
-          <MiddleNameInput />
-        </div>
-        <div style={{ display: 'flex', gap: 8 }}>
-            <YearsOldInput />
-            <JobPositionSelect />
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16, padding: 8, border: "1px solid black" }}>
-            <WorkPeriodList renderItem={(item) => <WorkPeriod item={item} />} />
-            <AddWorkPeriodButton />
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <SumYearsText />
-           <SubmitButton />
-        </div>
-    </div>
+    <Card style={{ width: 600 }}>
+        <Space direction="vertical" size={16}>
+            <Flex gap={8}>
+                <FirstNameInput />
+                <LastNameInput />
+                <MiddleNameInput />
+            </Flex>
+            <Flex gap={8}>
+                <YearsOldInput />
+                <JobPositionSelect />
+            </Flex>
+            <Card actions={[<AddWorkPeriodButton />]}>
+                <WorkPeriodList renderItem={(item) => <WorkPeriod item={item} />} />
+            </Card>
+            <Flex justify="space-between">
+                <SumYearsText />
+            <SubmitButton />
+            </Flex>
+        </Space>
+    </Card>
 )
