@@ -3,6 +3,7 @@ import { createEvent, createStore } from "effector";
 
 export const changeJobPosition = createEvent<string>();
 export const $jobPosition = createStore<string>('');
+export const $isJobPositionValid = $jobPosition.map(Boolean);
 
 $jobPosition.on(changeJobPosition, (_, value) => value)
 
